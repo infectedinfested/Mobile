@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50sp"
+    android:gravity="right"
+    android:orientation="horizontal">
+
+
+    <TextView
+        android:layout_alignParentLeft="true"
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:fontFamily="sans-serif"
+        android:layout_gravity="center_vertical|start"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textSize="26sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="Name of the game placeholder"/>
+
+
+    <TextView
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="200sp"
+        android:id="@+id/tv_pos5"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:layout_gravity="center_vertical|end"
+        android:background="@drawable/circle"
+        android:backgroundTint="@color/plastic"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:text="PLAYER"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        android:visibility="invisible" />
+
+    <TextView
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="150sp"
+        android:id="@+id/tv_pos4"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:layout_gravity="center_vertical|end"
+        android:background="@drawable/circle"
+        android:backgroundTint="@color/wood"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:text="PLAYER"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        android:visibility="invisible" />
+
+    <TextView
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="100sp"
+        android:id="@+id/tv_pos3"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:layout_gravity="center_vertical|end"
+        android:background="@drawable/circle"
+        android:backgroundTint="@color/bronze"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:text="PLAYER"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        android:visibility="invisible" />
+
+    <TextView
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="50sp"
+        android:id="@+id/tv_pos2"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:layout_gravity="center_vertical|end"
+        android:background="@drawable/circle"
+        android:backgroundTint="@color/silver"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:text="PLAYER"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        android:visibility="invisible" />
+
+    <TextView
+        android:layout_alignParentRight="true"
+        android:id="@+id/tv_pos1"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:layout_gravity="center_vertical|end"
+        android:background="@drawable/circle"
+        android:backgroundTint="@color/golden"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:text="PLAYER"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        android:visibility="invisible" />
+</RelativeLayout>
