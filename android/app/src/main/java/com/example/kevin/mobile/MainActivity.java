@@ -17,7 +17,6 @@ import android.view.MenuItem;
 import com.example.kevin.mobile.Adaptors.ItemAdaptor;
 import com.example.kevin.mobile.Collectors.DatabaseHelper;
 import com.example.kevin.mobile.Collectors.getUrlContentTask;
-import com.example.kevin.mobile.Fragments.Fragment1;
 import com.example.kevin.mobile.Fragments.Fragment2;
 import com.example.kevin.mobile.Fragments.Fragment3;
 import com.example.kevin.mobile.Models.Item;
@@ -35,7 +34,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ExecutionException;
 
-public class MainActivity extends Activity implements NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends Activity {
 
 
     private RecyclerView mRecyclerView;
@@ -267,20 +266,6 @@ public class MainActivity extends Activity implements NavigationView.OnNavigatio
     }
 
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-    //    System.out.println(item.getItemId());
-    //    if ( item.getItemId()==2131230823){
-    //        startActivity(new Intent(getApplicationContext(),MainActivity.class));
-    //    }
-    //    if ( item.getItemId()==2131230824){
-    //        startActivity(new Intent(getApplicationContext(),Fragment2.class));
-    //    }
-        if ( item.getItemId()==2131230825){
-            startActivity(new Intent(getApplicationContext(),Fragment3.class));
-        }
-        return false;
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -310,27 +295,24 @@ public class MainActivity extends Activity implements NavigationView.OnNavigatio
         // Create a new fragment and specify the fragment to show based on nav item clicked
         Fragment fragment = null;
         Class fragmentClass = null;
-
         switch(menuItem.getItemId()) {
             case R.id.nav_activity1:
                 //if (this.getClass()!= MainActivity.class)
-                    fragmentClass = Fragment1.class;
+                    //fragmentClass = MainActivity.class;
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
                 break;
             case R.id.nav_activity2:
-                fragmentClass = Fragment2.class;
+                //fragmentClass = Fragment2.class;
+                startActivity(new Intent(getApplicationContext(),Fragment2.class));
                 break;
             case R.id.nav_activity3:
-                fragmentClass = Fragment3.class;
+                //fragmentClass = Fragment3.class;
+                startActivity(new Intent(getApplicationContext(),Fragment3.class));
                 break;
             default:
-                fragmentClass = Fragment1.class;
         }
 
-        try {
-            fragment = (Fragment) fragmentClass.newInstance();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
 
         // Insert the fragment by replacing any existing fragment
         // Highlight the selected item has been done by NavigationView

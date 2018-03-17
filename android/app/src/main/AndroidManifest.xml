@@ -28,6 +28,7 @@
             android:name=".Fragments.Fragment3"
             android:label="@string/title_activity_main3"
             android:theme="@style/AppTheme.NoActionBar" />
+
     </application>
 
 </manifest>
