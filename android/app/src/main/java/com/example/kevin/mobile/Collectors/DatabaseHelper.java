@@ -118,6 +118,23 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         onCreate(db);
     }
 
+    public void DropData(){
+        db.execSQL("DELETE FROM " +  TABLE_NAME);
+    }
+
+    public void DropWatch(){
+        db.execSQL("DELETE FROM " +  TABLE_NAME + " WHERE WATCH > '0'" );
+    }
+
+    public void halfItemWatch(){
+        int tBuy = (this.selectWatch().get(0).getOriginBuy() / 2);
+        int tId =  this.selectWatch().get(0).getId();
+
+        db.execSQL("UPDATE " + TABLE_NAME +
+                " SET " + COL_4 + " = " + tBuy +
+                " WHERE " + COL_0+ " = " + tId);
+    }
+
 
     public List<Integer> insertAllItems(ArrayList<Item> items) {
         List<Integer> results = new ArrayList<>();

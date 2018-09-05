@@ -5,7 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.kevin.mobile.Fragments.Fragment2"
+    tools:context="com.example.kevin.mobile.Fragments.LogoActivity"
     tools:showIn="@layout/activity_main2">
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/gw2logo" />
 </android.support.constraint.ConstraintLayout>

@@ -5,7 +5,63 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.kevin.mobile.Fragments.Fragment3"
+    tools:context="com.example.kevin.mobile.Fragments.DumpActivity"
     tools:showIn="@layout/activity_main3">
+
+    <TextView
+        android:id="@+id/textDump"
+        android:layout_width="317dp"
+        android:layout_height="39dp"
+        android:layout_marginEnd="8dp"
+        android:text="Dump Database"
+        app:layout_constraintEnd_toStartOf="@+id/buttonDump" />
+
+    <Button
+        android:id="@+id/buttonDump"
+        android:layout_width="59dp"
+        android:layout_height="39dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <TextView
+        android:id="@+id/textWatch"
+        android:layout_width="317dp"
+        android:layout_height="39dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="48dp"
+        android:text="Dump WatchList"
+        app:layout_constraintEnd_toStartOf="@+id/buttonWatch"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonWatch"
+        android:layout_width="59dp"
+        android:layout_height="39dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonDump" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="308dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="140dp"
+        android:text="Half FirstWatch DEBUG"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <Button
+        android:id="@+id/buttonHalve"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="140dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="@+id/buttonDump" />
 
 </android.support.constraint.ConstraintLayout>

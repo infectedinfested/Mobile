@@ -1,4 +1,4 @@
-package com.example.kevin.mobile;
+package com.example.kevin.mobile.Fragments;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -6,7 +6,6 @@ import android.app.Notification;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,9 +16,10 @@ import android.view.MenuItem;
 import com.example.kevin.mobile.Adaptors.ItemAdaptor;
 import com.example.kevin.mobile.Collectors.DatabaseHelper;
 import com.example.kevin.mobile.Collectors.getUrlContentTask;
-import com.example.kevin.mobile.Fragments.DumpActivity;
-import com.example.kevin.mobile.Fragments.LogoActivity;
+import com.example.kevin.mobile.JSONArrayCursor;
 import com.example.kevin.mobile.Models.Item;
+import com.example.kevin.mobile.NotificationHelper;
+import com.example.kevin.mobile.R;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -50,6 +50,11 @@ public class MainActivity extends Activity {
     @Override
     protected void onStop() {
         super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
 
@@ -222,21 +227,21 @@ public class MainActivity extends Activity {
 
                     System.out.println("test1 > "+(((double)item.getBuy())*((((double)item.getWatch()*10))/100+1)));
                     if (item.getOriginBuy() == (((double)item.getBuy())*((((double)item.getWatch()*10))/100+1))){
-                        noficationCall(item.getName()+ " has alerted,test");
+                        notificationCall(item.getName()+ " has alerted,test");
                     }
 
                     System.out.println("test2 < "+(((double)item.getBuy())/((((double)item.getWatch()*10))/100+1)));
                     if (item.getOriginBuy()< (((double)item.getBuy())/((((double)item.getWatch()*10))/100+1))){
-                        noficationCall(item.getName()+ " has alerted");
+                        notificationCall(item.getName()+ " has alerted");
                     }
 
                     System.out.println("test3 > "+(((double)item.getSell())*((((double)item.getWatch()*10))/100+1)));
                     if (item.getOriginSell()> (((double)item.getSell())*((((double)item.getWatch()*10))/100+1))){
-                        noficationCall(item.getName()+ " has alerted");
+                        notificationCall(item.getName()+ " has alerted");
                     }
                     System.out.println("test3 < "+(((double)item.getSell())/((((double)item.getWatch()*10))/100+1)));
                     if (item.getOriginSell()< (((double)item.getSell())/((((double)item.getWatch()*10))/100+1))){
-                        noficationCall(item.getName()+ " has alerted");
+                        notificationCall(item.getName()+ " has alerted");
                     }
                 }
             }
@@ -254,18 +259,16 @@ public class MainActivity extends Activity {
         Timer updateWatchItemsTimer = new Timer("watch");//create a new Timer
         Timer updateItemsTimer = new Timer("reload");//create a new Timer
 
-        updateWatchItemsTimer.scheduleAtFixedRate(updateWatchItems, 1800000, 1800000);//update the wacthlist every 30 mins 1800000
+        updateWatchItemsTimer.scheduleAtFixedRate(updateWatchItems, 60000, 60000);//update the wacthlist every 30 mins 1800000
         updateItemsTimer.scheduleAtFixedRate(updateItems, 28800000, 28800000);//update the whole list every 12 hours 28800000
     }
 
-    private void noficationCall(String text){
+    private void notificationCall(String text){
         helper = new NotificationHelper(this);
         Notification.Builder builder= helper.getChannelNotification(text,"");
         helper.getManager().notify(new Random().nextInt(),builder.build());
 
     }
-
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -299,14 +302,17 @@ public class MainActivity extends Activity {
             case R.id.nav_activity1:
                 //if (this.getClass()!= MainActivity.class)
                     //fragmentClass = MainActivity.class;
+                //mDrawer.closeDrawers();
                 startActivity(new Intent(getApplicationContext(),MainActivity.class));
                 break;
             case R.id.nav_activity2:
-                //fragmentClass = Fragment2.class;
+                //fragmentClass = LogoActivity.class;
+                //mDrawer.closeDrawers();
                 startActivity(new Intent(getApplicationContext(),LogoActivity.class));
                 break;
             case R.id.nav_activity3:
-                //fragmentClass = Fragment3.class;
+                //fragmentClass = DumpActivity.class;
+                //mDrawer.closeDrawers();
                 startActivity(new Intent(getApplicationContext(),DumpActivity.class));
                 break;
             default:
